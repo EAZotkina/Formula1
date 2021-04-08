@@ -13,11 +13,9 @@ public class Car implements Runnable {
     private final Race race;
     private final int speed;
     private final String name;
-    private int count;
     private final CyclicBarrier cb;
     private final CountDownLatch cdl;
-    private static boolean winnerFound;
-    private static Lock win = new ReentrantLock();
+    private static final Lock win = new ReentrantLock();
 
     public String getName() {
         return name;
@@ -47,7 +45,6 @@ public class Car implements Runnable {
             for (int i = 0; i < race.getStages().size(); i++) {
                 race.getStages().get(i).go(this);
             }
-//            checkWinner(this);
             synchronized (win) {
                 cdl.countDown();
                 if (cdl.getCount() == 1)
@@ -57,6 +54,5 @@ public class Car implements Runnable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }

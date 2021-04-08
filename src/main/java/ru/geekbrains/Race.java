@@ -3,6 +3,7 @@ package ru.geekbrains;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+
 public class Race {
     private final ArrayList<Stage> stages;
     public ArrayList<Stage> getStages() {

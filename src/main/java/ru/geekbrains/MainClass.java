@@ -29,7 +29,6 @@ public class MainClass {
         } catch (InterruptedException | BrokenBarrierException ex) {
             ex.printStackTrace();
         }
-
         try {
             cdl.await();
         } catch (InterruptedException ex) {
