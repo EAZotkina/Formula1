@@ -1,10 +1,9 @@
-package ru.geekbrains;
+package lesson13;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-
 public class Car implements Runnable {
     private static int CARS_COUNT;
     static {
@@ -20,11 +19,9 @@ public class Car implements Runnable {
     public String getName() {
         return name;
     }
-
     public int getSpeed() {
         return speed;
     }
-
     public Car(Race race, int speed, CyclicBarrier cb, CountDownLatch cdl) {
         this.race = race;
         this.speed = speed;
@@ -32,9 +29,7 @@ public class Car implements Runnable {
         this.name = "Участник #" + CARS_COUNT;
         this.cb = cb;
         this.cdl = cdl;
-
     }
-
     @Override
     public void run() {
         try {
@@ -56,3 +51,4 @@ public class Car implements Runnable {
         }
     }
 }
+
